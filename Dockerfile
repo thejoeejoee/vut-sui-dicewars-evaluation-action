@@ -1,9 +1,9 @@
-FROM python:3.8.0-alpine
+FROM python:3.8.0
 
-COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT /usr/local/src
 
-COPY dicewars /dicewars
+COPY ./ /usr/local/src/
 
-RUN pip install -r /dicewars/requirements.txt
+RUN git submodule update --init && pip install -r dicewars/requirements.txt
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/src/entrypoint.sh"]
