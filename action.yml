@@ -1,0 +1,24 @@
+# action.yml
+name: 'VUT SUI dicewars evaluation'
+
+description: 'Evaluate AI in dicewars and send results to output.'
+
+inputs:
+  ai-path:
+    description: 'Where is AI located (relative to repository root)'
+    required: true
+    default: 'xlogin00'
+
+outputs:
+  results:
+    description: 'Results table'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.ai-path }}
+
+branding:
+  icon: 'award'
+  color: 'blue'
