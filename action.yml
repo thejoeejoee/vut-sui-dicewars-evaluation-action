@@ -4,10 +4,15 @@ name: 'VUT SUI dicewars evaluation'
 description: 'Evaluate AI in dicewars and send results to output.'
 
 inputs:
-  ai-path:
-    description: 'Where is AI located (relative to repository root)'
+  ai-name:
+    description: 'What is the name of AI'
     required: true
     default: 'xlogin00'
+
+  ai-path:
+    description: 'Where is AI located (relative to repository root)'
+    required: false
+    default: './'
 
 outputs:
   results:
@@ -17,6 +22,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.ai-name }}
     - ${{ inputs.ai-path }}
 
 branding:

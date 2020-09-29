@@ -1,6 +1,20 @@
 #!/usr/bin/env sh
 
+# arguments from GH action
+ARG_AI_NAME=$1;
+ARG_AI_PATH=$2;
 
-AI_PATH=$(ls -la "$GITHUB_WORKSPACE"/"$1"/);
+# target path to copy AI
+TARGET_AI_PATH=dicewars/dicewars/ai/;
 
-echo "::set-output name=results::Entrypoint result: " "$AI_PATH";
+# absolute path to AI
+AI_FULL_PATH="$GITHUB_WORKSPACE"/"$ARG_AI_PATH""$ARG_AI_NAME";
+
+# move AI to needed destination
+cp -r "$AI_FULL_PATH" $TARGET_AI_PATH;
+
+echo "::set-output name=results::AI name: " "$ARG_AI_NAME";
+
+# TODO: fix paths && evaluation
+# run evaluation
+PYTHONPATH=dicewars/scripts:dicewars cd dicewars && ../evaluate.py --user-ai-name "$ARG_AI_NAME" --game-size 4 --nb-boards 128
