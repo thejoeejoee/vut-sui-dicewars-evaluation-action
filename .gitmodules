@@ -1,0 +1,3 @@
+[submodule "dicewars"]
+	path = dicewars
+	url = https://github.com/ibenes/dicewars.git
