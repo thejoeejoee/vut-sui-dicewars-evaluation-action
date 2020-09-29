@@ -2,8 +2,16 @@ FROM python:3.8.0
 
 ENTRYPOINT /usr/local/src
 
-COPY ./ /usr/local/src/
+COPY . .
 
-RUN git clone https://github.com/ibenes/dicewars.git /usr/local/src/dicewars && pip install -r dicewars/requirements.txt
+RUN ls .
+
+RUN git clone https://github.com/ibenes/dicewars.git /usr/local/src/dicewars
+
+RUN ls .
+
+RUN ls /usr/local/src/dicewars
+
+RUN pip install -r dicewars/requirements.txt
 
 ENTRYPOINT ["/usr/local/src/entrypoint.sh"]
