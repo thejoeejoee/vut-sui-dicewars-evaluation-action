@@ -1,5 +1,6 @@
 FROM python:3.8.0
 
+USER root
 WORKDIR /usr/local/src
 
 COPY . .
