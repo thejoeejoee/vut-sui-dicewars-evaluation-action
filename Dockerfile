@@ -4,6 +4,6 @@ ENTRYPOINT /usr/local/src
 
 COPY ./ /usr/local/src/
 
-RUN git submodule update --init && pip install -r dicewars/requirements.txt
+RUN git clone https://github.com/ibenes/dicewars.git /usr/local/src/dicewars && pip install -r dicewars/requirements.txt
 
 ENTRYPOINT ["/usr/local/src/entrypoint.sh"]
