@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-echo "::set-output name=results::" "$@"
+echo "::set-output name=results::Entrypoint result: " "$@"
