@@ -10,11 +10,7 @@ TARGET_AI_PATH="$GITHUB_WORKSPACE""/dicewars/ai/";
 # absolute path to AI
 AI_FULL_PATH="$GITHUB_WORKSPACE"/"$ARG_AI_PATH""$ARG_AI_NAME";
 
-LS=$(ls -la "$GITHUB_WORKSPACE""/dicewars/");
-echo "$LS";
-LS=$(ls -la "$GITHUB_WORKSPACE""/dicewars/dicewars/");
-echo "$LS";
-LS=$(ls -la "$GITHUB_WORKSPACE""/dicewars/dicewars/ai");
+LS=$(tree -a "$GITHUB_WORKSPACE");
 echo "$LS";
 
 # move AI to needed destination
