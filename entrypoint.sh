@@ -5,10 +5,14 @@ ARG_AI_NAME=$1;
 ARG_AI_PATH=$2;
 
 # target path to copy AI
-TARGET_AI_PATH="$GITHUB_WORKSPACE""/dicewars/dicewars/ai/";
+TARGET_AI_PATH="$GITHUB_WORKSPACE""/dicewars/ai/";
 
 # absolute path to AI
 AI_FULL_PATH="$GITHUB_WORKSPACE"/"$ARG_AI_PATH""$ARG_AI_NAME";
+
+ls "$GITHUB_WORKSPACE""/dicewars/";
+ls "$GITHUB_WORKSPACE""/dicewars/dicewars/";
+ls "$GITHUB_WORKSPACE""/dicewars/dicewars/ai";
 
 # move AI to needed destination
 cp -r "$AI_FULL_PATH" $TARGET_AI_PATH;
