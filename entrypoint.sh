@@ -10,12 +10,15 @@ TARGET_AI_PATH="$GITHUB_WORKSPACE""/dicewars/ai/";
 # absolute path to AI
 AI_FULL_PATH="$GITHUB_WORKSPACE"/"$ARG_AI_PATH""$ARG_AI_NAME";
 
-ls "$GITHUB_WORKSPACE""/dicewars/";
-ls "$GITHUB_WORKSPACE""/dicewars/dicewars/";
-ls "$GITHUB_WORKSPACE""/dicewars/dicewars/ai";
+LS=$(ls -la "$GITHUB_WORKSPACE""/dicewars/");
+echo "$LS";
+LS=$(ls -la "$GITHUB_WORKSPACE""/dicewars/dicewars/");
+echo "$LS";
+LS=$(ls -la "$GITHUB_WORKSPACE""/dicewars/dicewars/ai");
+echo "$LS";
 
 # move AI to needed destination
-cp -r "$AI_FULL_PATH" $TARGET_AI_PATH;
+cp -r "$AI_FULL_PATH" "$TARGET_AI_PATH";
 
 echo "::set-output name=results::AI name: " "$ARG_AI_NAME";
 
