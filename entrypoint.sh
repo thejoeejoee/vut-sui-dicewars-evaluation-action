@@ -5,7 +5,7 @@ ARG_AI_NAME=$1;
 ARG_AI_PATH=$2;
 
 # target path to copy AI
-TARGET_AI_PATH=dicewars/dicewars/ai/;
+TARGET_AI_PATH="$GITHUB_WORKSPACE""/dicewars/dicewars/ai/";
 
 # absolute path to AI
 AI_FULL_PATH="$GITHUB_WORKSPACE"/"$ARG_AI_PATH""$ARG_AI_NAME";
@@ -14,6 +14,8 @@ AI_FULL_PATH="$GITHUB_WORKSPACE"/"$ARG_AI_PATH""$ARG_AI_NAME";
 cp -r "$AI_FULL_PATH" $TARGET_AI_PATH;
 
 echo "::set-output name=results::AI name: " "$ARG_AI_NAME";
+
+cd "$GITHUB_WORKSPACE" || exit 1;
 
 # TODO: fix paths && evaluation
 # run evaluation
