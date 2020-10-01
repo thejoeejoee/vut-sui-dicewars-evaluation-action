@@ -1,6 +1,6 @@
 FROM python:3.8.0
 
-COPY . .
+COPY ./evaluate.py /evaluate.py
 
 COPY ./entrypoint.sh /entrypoint.sh
 
