@@ -17,5 +17,12 @@ cp -r "$AI_FULL_PATH" "$TARGET_AI_PATH";
 
 echo "::set-output name=results::AI name: " "$ARG_AI_NAME";
 
+LS=$(ls -la .);
+echo "$LS";
+
+
+LS=$(ls -la dicewars);
+echo "$LS";
+
 # run evaluation
 PYTHONPATH=dicewars/scripts:dicewars cd dicewars && ../evaluate.py --user-ai-name "$ARG_AI_NAME" --game-size 4 --nb-boards 128
