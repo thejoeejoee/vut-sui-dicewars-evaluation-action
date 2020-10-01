@@ -21,4 +21,6 @@ cp /evaluate.py evaluate.py;
 echo "::set-output name=results::AI name: " "$ARG_AI_NAME";
 
 # run evaluation
-PYTHONPATH=dicewars/scripts:dicewars cd dicewars && ../evaluate.py --user-ai-name "$ARG_AI_NAME" --game-size 4 --nb-boards 128
+export PYTHONPATH=scripts:.;
+
+cd dicewars && ../evaluate.py --user-ai-name "$ARG_AI_NAME" --game-size 4 --nb-boards 128
